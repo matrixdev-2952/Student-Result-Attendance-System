@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Ranking</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Ranking</h1>
+
+    <p>
+        Ranking is calculated using Merge Sort based on average marks.
+    </p>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Rank</th>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Average Marks</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for student in students %}
+
+            <tr>
+
+                <td>
+                    <strong>{{ student.rank }}</strong>
+                </td>
+
+                <td>
+                    {{ student.roll_no }}
+                </td>
+
+                <td>
+                    {{ student.name }}
+                </td>
+
+                <td>
+                    {{ "%.2f"|format(student.average) }}
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <br>
+
+    <a href="/">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Management System</h1>
+
+    <p class="subtitle">
+        Student Result & Attendance Management System
+    </p>
+
+    <div class="dashboard">
+
+        <a href="/students" class="card">
+            <h2>Students</h2>
+            <p>View all students</p>
+        </a>
+
+        <a href="/add-student" class="card">
+            <h2>Add Student</h2>
+            <p>Add a new student</p>
+        </a>
+
+        <a href="/results" class="card">
+            <h2>Results</h2>
+            <p>Manage student marks</p>
+        </a>
+
+        <a href="/attendance" class="card">
+            <h2>Attendance</h2>
+            <p>Manage attendance</p>
+        </a>
+
+        <a href="/ranking" class="card">
+            <h2>Ranking</h2>
+            <p>View student ranking</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

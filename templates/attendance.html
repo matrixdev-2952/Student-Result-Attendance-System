@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attendance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Attendance Management</h1>
+
+    <form method="POST" class="form-box">
+
+        <label>Student</label>
+
+        <select name="roll_no" required>
+
+            {% for student in students %}
+
+                <option value="{{ student.roll_no }}">
+                    {{ student.roll_no }} - {{ student.name }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <label>Date</label>
+
+        <input type="date"
+               name="attendance_date"
+               required>
+
+
+        <label>Status</label>
+
+        <select name="status">
+
+            <option value="Present">
+                Present
+            </option>
+
+            <option value="Absent">
+                Absent
+            </option>
+
+        </select>
+
+
+        <button type="submit">
+            Mark Attendance
+        </button>
+
+    </form>
+
+
+    <h2>Attendance Summary</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Total Days</th>
+                <th>Present</th>
+                <th>Attendance %</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for record in attendance %}
+
+            <tr>
+
+                <td>{{ record.roll_no }}</td>
+
+                <td>{{ record.name }}</td>
+
+                <td>{{ record.total_days }}</td>
+
+                <td>{{ record.present_days }}</td>
+
+                <td>
+                    {{ record.attendance_percentage or 0 }}%
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <br>
+
+    <a href="/">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

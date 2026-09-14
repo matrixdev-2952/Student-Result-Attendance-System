@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Student Results</h1>
+
+    <form method="POST" class="form-box">
+
+        <label>Student</label>
+
+        <select name="roll_no" required>
+
+            {% for student in students %}
+
+                <option value="{{ student.roll_no }}">
+                    {{ student.roll_no }} - {{ student.name }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <label>Subject</label>
+
+        <select name="subject_id" required>
+
+            {% for subject in subjects %}
+
+                <option value="{{ subject.subject_id }}">
+                    {{ subject.subject_name }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+
+        <label>Marks</label>
+
+        <input type="number"
+               name="marks"
+               min="0"
+               max="100"
+               required>
+
+
+        <button type="submit">
+            Add Result
+        </button>
+
+    </form>
+
+
+    <h2>Result Records</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Marks</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for result in results %}
+
+            <tr>
+                <td>{{ result.roll_no }}</td>
+                <td>{{ result.name }}</td>
+                <td>{{ result.subject_name }}</td>
+                <td>{{ result.marks }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <br>
+
+    <a href="/">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Students</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Students</h1>
+
+    <!-- Binary Search -->
+    <form action="/search" method="GET" class="search-box">
+
+        <input
+            type="number"
+            name="roll_no"
+            placeholder="Enter Roll Number"
+            required
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+    {% if search %}
+        {% if students %}
+            <p class="success">
+                Student found using Binary Search.
+            </p>
+        {% else %}
+            <p class="error">
+                Student not found.
+            </p>
+        {% endif %}
+    {% endif %}
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        {% for student in students %}
+
+            <tr>
+                <td>{{ student.roll_no }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.class_name }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <br>
+
+    <a href="/">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

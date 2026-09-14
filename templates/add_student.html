@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Student</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Add Student</h1>
+
+    <form method="POST" class="form-box">
+
+        <label>Roll Number</label>
+        <input type="number"
+               name="roll_no"
+               required>
+
+        <label>Name</label>
+        <input type="text"
+               name="name"
+               required>
+
+        <label>Email</label>
+        <input type="email"
+               name="email">
+
+        <label>Class</label>
+        <input type="text"
+               name="class_name"
+               placeholder="BT-12">
+
+        <button type="submit">
+            Add Student
+        </button>
+
+    </form>
+
+    <a href="/">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
